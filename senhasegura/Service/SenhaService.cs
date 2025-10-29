@@ -5,43 +5,38 @@ namespace senhasegura.Service
 {
     public class SenhaService : ISenhaService
     {
-        public Password VerifyPassword(Requirements requirements)
+        public Password VerifyPassword(string password, Requirements requirements)
         {
-           return new Password();
+           int score = 0;
+
+           if(requirements.temMinuscula = password.Any(c => char.IsLower(c)))
+                score++;
+            if(requirements.temMaiuscula = password.Any(c => char.IsUpper(c)))
+                score++;
+            if(requirements.temNumero = password.Any(c => char.IsDigit(c)))
+                score++;
+            if(requirements.temEspecial = password.Any(c => !char.IsLetterOrDigit(c)))
+                score++;
+
+            if(password.Length >= requirements.tamanhoMinimo)
+                score++;
+
+            var seguranca = Enum.Seguranca.Baixa;
+
+            if (score > 4)
+                seguranca = Enum.Seguranca.Alta;
+            else if(score == 3)
+                seguranca = Enum.Seguranca.Media;
+            else if(score < 3)
+                seguranca = Enum.Seguranca.Baixa;
+
+            return new Password
+           {
+               Pontuacao = score,
+               Seguranca = seguranca,
+               Requisitos = requirements
+           };
         }
 
-        public  bool HasLowercase(string password)
-        {
-            bool temMinuscula = password.Any(c => char.IsLower(c));
-            return temMinuscula;
-        }
-
-        public bool HasNumber(string password)
-        {
-            bool temNumero = password.Any(c => char.IsDigit(c));
-            return temNumero;
-        }
-
-        public bool HasSpecialCharacter(string password)
-        {
-            bool temEspecial = password.Any(c => !char.IsLetterOrDigit(c));
-            return temEspecial;
-        }
-
-        public bool HasUppercase(string password)
-        {
-            bool temMaiuscula = password.Any(c => char.IsUpper(c)); 
-            return temMaiuscula;
-        }
-
-        public bool Tamanho(string password)
-        {
-            if(password.Length >= 10)
-            {
-                return true;
-            }
-
-            return false;
-        }   
     }
 }
