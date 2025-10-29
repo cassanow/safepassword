@@ -12,23 +12,22 @@ namespace senhasegura.Service
             Requirements requirements = new Requirements();
 
             if (requirements.temMinuscula = password.Any(c => char.IsLower(c)))
-                score++;
+                score += 2;
             if(requirements.temMaiuscula = password.Any(c => char.IsUpper(c)))
-                score++;
-            if(requirements.temNumero = password.Any(c => char.IsDigit(c)))
-                score++;
-            if(requirements.temEspecial = password.Any(c => !char.IsLetterOrDigit(c)))
-                score++;
+                score += 2;
+            if (requirements.temNumero = password.Any(c => char.IsDigit(c)))
+                score += 2;
+            if (requirements.temEspecial = password.Any(c => !char.IsLetterOrDigit(c)))
+                score += 2;
+            if (requirements.tamanhoMinimo = password.Length >= 10 )
+                score += 2;
+                
 
-            if(password.Length >= requirements.tamanhoMinimo)
-                score++;
-          
+           var seguranca = Enum.Seguranca.Baixa;
 
-                var seguranca = Enum.Seguranca.Baixa;
-
-            if (score > 4)
+            if (score == 10)
                 seguranca = Enum.Seguranca.Alta;
-            else if(score == 3)
+            else if (score >= 5 && score < 10)
                 seguranca = Enum.Seguranca.Media;
             else
                 seguranca = Enum.Seguranca.Baixa;

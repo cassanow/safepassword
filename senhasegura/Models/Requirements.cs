@@ -4,8 +4,7 @@ namespace senhasegura.Models
 {
     public class Requirements
     {
-        [MinLength(10)]
-        public int tamanhoMinimo { get; set; } = 10;
+        public bool tamanhoMinimo { get; set; } = true;
 
         public bool temMaiuscula { get; set; } = true;
 
