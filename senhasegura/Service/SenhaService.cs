@@ -5,11 +5,13 @@ namespace senhasegura.Service
 {
     public class SenhaService : ISenhaService
     {
-        public Password VerifyPassword(string password, Requirements requirements)
+        public Password VerifyPassword(string password)
         {
            int score = 0;
 
-           if(requirements.temMinuscula = password.Any(c => char.IsLower(c)))
+            Requirements requirements = new Requirements();
+
+            if (requirements.temMinuscula = password.Any(c => char.IsLower(c)))
                 score++;
             if(requirements.temMaiuscula = password.Any(c => char.IsUpper(c)))
                 score++;
@@ -20,8 +22,9 @@ namespace senhasegura.Service
 
             if(password.Length >= requirements.tamanhoMinimo)
                 score++;
+          
 
-            var seguranca = Enum.Seguranca.Baixa;
+                var seguranca = Enum.Seguranca.Baixa;
 
             if (score > 4)
                 seguranca = Enum.Seguranca.Alta;

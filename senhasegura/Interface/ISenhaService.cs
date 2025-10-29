@@ -4,7 +4,7 @@ namespace senhasegura.Interface
 {
     public interface ISenhaService
     {
-        Password VerifyPassword(string password, Requirements requirements);
+        Password VerifyPassword(string password);
      
     }
 }
