@@ -33,5 +33,15 @@ namespace senhasegura.Service
             bool temMaiuscula = password.Any(c => char.IsUpper(c)); 
             return temMaiuscula;
         }
+
+        public bool Tamanho(string password)
+        {
+            if(password.Length >= 10)
+            {
+                return true;
+            }
+
+            return false;
+        }   
     }
 }
