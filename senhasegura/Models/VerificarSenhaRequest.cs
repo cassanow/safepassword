@@ -2,5 +2,6 @@
 {
     public class VerificarSenhaRequest
     {
+        public string Password { get; set; }
     }
 }

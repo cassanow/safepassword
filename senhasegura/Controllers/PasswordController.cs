@@ -15,7 +15,7 @@ namespace senhasegura.Controllers
             _senhaService = senhaService;
         }
 
-        [HttpGet("verificar")]
+        [HttpPost("verificar")]
         public IActionResult Verificar(VerificarSenhaRequest request)
         {
            if(string.IsNullOrEmpty(request.Password))
