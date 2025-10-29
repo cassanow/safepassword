@@ -30,7 +30,7 @@ namespace senhasegura.Service
                 seguranca = Enum.Seguranca.Alta;
             else if(score == 3)
                 seguranca = Enum.Seguranca.Media;
-            else if(score < 3)
+            else
                 seguranca = Enum.Seguranca.Baixa;
 
             return new Password
