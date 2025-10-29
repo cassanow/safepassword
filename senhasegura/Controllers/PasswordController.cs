@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using senhasegura.Interface;
+using senhasegura.Models;
 
 namespace senhasegura.Controllers
 {
@@ -15,12 +16,12 @@ namespace senhasegura.Controllers
         }
 
         [HttpGet("verificar")]
-        public IActionResult Verificar(string password)
+        public IActionResult Verificar(VerificarSenhaRequest request)
         {
-           if(string.IsNullOrEmpty(password))
+           if(string.IsNullOrEmpty(request.Password))
                return BadRequest("Password is required.");
 
-            var response = _senhaService.VerifyPassword(password);
+            var response = _senhaService.VerifyPassword(request.Password);
 
             return Ok(response);
         }
