@@ -9,5 +9,6 @@ namespace senhasegura.Interface
         bool HasLowercase(string password);
         bool HasNumber(string password);
         bool HasSpecialCharacter(string password);
+        bool Tamanho(string password);
     }
 }
