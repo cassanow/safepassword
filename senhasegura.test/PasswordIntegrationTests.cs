@@ -10,7 +10,7 @@ namespace senhasegura.test
 {
     public class PasswordIntegrationTests : IClassFixture<CustomWebApplicationFactory>
     {
-        private readonly  HttpClient _client;
+        private readonly HttpClient _client;
 
         public PasswordIntegrationTests(CustomWebApplicationFactory factory)
         {
@@ -31,6 +31,18 @@ namespace senhasegura.test
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 
-        }   
+        }
+
+        [Fact]
+        public async Task DeveMeRetornarBadRequestParaSenhaVazia()
+        {
+            var request = new
+            {
+                Password = ""
+            };
+            var response = await _client.PostAsJsonAsync("/v1/Password/verificar", request);
+            Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        }
     }
+
 }
