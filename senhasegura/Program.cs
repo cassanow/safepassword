@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.RateLimiting;
 using senhasegura.Interface;
 using senhasegura.Service;
 
@@ -10,6 +11,16 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 builder.Services.AddTransient<ISenhaService, SenhaService>();
+
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddSlidingWindowLimiter("fixed",o =>
+    {
+        o.PermitLimit = 5;
+        o.Window = TimeSpan.FromSeconds(30);
+        o.SegmentsPerWindow = 2;
+    });
+});  
 
 var app = builder.Build();
 
