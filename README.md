@@ -1,4 +1,4 @@
-# 🔐 Safe Password API
+# 🔐 senhasegura
 
 > Uma API REST para gerenciamento seguro de senhas, construída com .NET 9.0 e boas práticas de desenvolvimento.
 
