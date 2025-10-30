@@ -13,7 +13,6 @@ Este projeto foi desenvolvido como parte do meu aprendizado em desenvolvimento b
 - ✅ **Arquitetura limpa e organizada**
 - ✅ **Testes unitários e de integração**
 - ✅ **Containerização com Docker**
-- ✅ **CI/CD e Deploy automatizado**
 - ✅ **Boas práticas de segurança**
 
 ## 🚀 Tecnologias Utilizadas
