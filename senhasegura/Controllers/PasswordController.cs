@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using senhasegura.Interface;
 using senhasegura.Models;
 
 namespace senhasegura.Controllers
 {
+    [EnableRateLimiting("fixed")]   
     [ApiController]
     [Route("v1/[controller]")]
     public class PasswordController : Controller
