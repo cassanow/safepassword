@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace senhasegura.test
 {
-    public class TestFixture : WebApplicationFactory<Program>
+    public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
