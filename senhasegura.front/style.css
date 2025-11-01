@@ -82,4 +82,5 @@ p{
     font-size: 20px;
     text-align: center;
     font-family: Montserrat;
+    white-space: pre-line;
 }

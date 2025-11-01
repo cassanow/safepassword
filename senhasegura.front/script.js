@@ -18,5 +18,5 @@ document.getElementById("botao-verificar").addEventListener("click", async funct
       if(resultado.seguranca == 3){
         var seguranca = "Alta"
     }
-    document.getElementById("resultado").textContent = "Pontuacao: " + JSON.stringify(resultado.pontuacao) + " Segurança: " + seguranca
+    document.getElementById("resultado").textContent = "Pontuacao: " + JSON.stringify(resultado.pontuacao) + "\n Segurança: " + seguranca
 })
