@@ -10,13 +10,13 @@ document.getElementById("botao-verificar").addEventListener("click", async funct
 
     const resultado = await response.json();
     if(resultado.seguranca == 1){
-        var seguranca = "baixa"
+        var seguranca = "Baixa"
     }
      if(resultado.seguranca == 2){
-        var seguranca = "media"
+        var seguranca = "Média"
     }
       if(resultado.seguranca == 3){
-        var seguranca = "alta"
+        var seguranca = "Alta"
     }
     document.getElementById("resultado").textContent = "Pontuacao: " + JSON.stringify(resultado.pontuacao) + " Segurança: " + seguranca
 })
