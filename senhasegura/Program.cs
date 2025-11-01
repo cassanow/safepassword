@@ -26,7 +26,7 @@ builder.Services.AddCors(builder =>
 {
     builder.AddPolicy("FrontendPolicy", policy =>
     {
-        policy.WithOrigins("https://safepassword-five.vercel.app/")
+        policy.WithOrigins("https://safepassword-five.vercel.app")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
